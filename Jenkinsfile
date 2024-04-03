@@ -25,6 +25,17 @@ pipeline {
                 echo "------------------Unit Test Completed----------------"
             }
         }
+
+        stage("SonarQube Analysis") {
+            environment {
+                scannerHome = tool 'rabi-sonar-scanner'
+            }
+            steps {
+                withSonarQubeEnv('rabi-sonarqube-server') {
+                sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+        }
     }
 }
 
