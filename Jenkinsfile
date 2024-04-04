@@ -28,16 +28,16 @@ pipeline {
             }
         }
 
-        stage("SonarQube Analysis") {
-            environment {
-                scannerHome = tool 'rabi-sonar-scanner'
-            }
-            steps {
-                withSonarQubeEnv('rabi-sonarqube-server') {
-                sh "${scannerHome}/bin/sonar-scanner"
-                }
-            }
-        }
+        // stage("SonarQube Analysis") {
+        //     environment {
+        //         scannerHome = tool 'rabi-sonar-scanner'
+        //     }
+        //     steps {
+        //         withSonarQubeEnv('rabi-sonarqube-server') {
+        //         sh "${scannerHome}/bin/sonar-scanner"
+        //         }
+        //     }
+        // }
 
         stage("Jar Publish") {
             steps {
