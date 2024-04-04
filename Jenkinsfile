@@ -1,6 +1,6 @@
 def registry = 'https://reporabi01.jfrog.io/'
 
-pipeline 
+pipeline {
     agent {
         node {
             label 'maven'
@@ -52,7 +52,7 @@ pipeline
                               "target": "libs-release-local/{1}",
                               "flat": "false",
                               "props" : "${properties}",
-                              "exclusions": [ "*.sha1", "*.md5" 
+                              "exclusions": [ "*.sha1", "*.md5" ]
                             }
                          ]
                      }"""
@@ -60,10 +60,9 @@ pipeline
                      buildInfo.env.collect()
                      server.publishBuildInfo(buildInfo)
                      echo '<--------------- Jar Publish Ended --------------->'  
-            
+                }
             }
         }   
     }
 }
-
 
