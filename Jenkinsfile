@@ -89,7 +89,7 @@ pipeline {
             }
         }
 
-        stage(" Deploy ") {
+        stage(" Deploy to EKS ") {
        steps {
          script {
             echo '<--------------- Helm Deploy Started --------------->'
