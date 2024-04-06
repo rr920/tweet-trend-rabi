@@ -86,6 +86,16 @@ pipeline {
                echo '<--------------- Docker Publish Ended --------------->'  
             }
         }
+
+        stage("Deplying to EKS") {
+       steps {
+         script {
+            echo '<--------------- Helm Deploy Started --------------->'
+            sh './deploy.sh'
+            echo '<--------------- Helm deploy Ends --------------->'
+         }
+       }
+     } 
     }   
     }
 }
