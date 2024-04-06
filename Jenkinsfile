@@ -89,11 +89,11 @@ pipeline {
             }
         }
 
-        stage("Deplying to EKS") {
+        stage(" Deploy ") {
        steps {
          script {
             echo '<--------------- Helm Deploy Started --------------->'
-            sh './deploy.sh'
+            sh 'helm install ttrend ttrend-0.1.0.tgz'
             echo '<--------------- Helm deploy Ends --------------->'
          }
        }
